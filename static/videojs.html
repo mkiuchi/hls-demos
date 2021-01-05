@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
+        <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
+        <style type="text/css">
+            .vjs-control-bar { font-size: 140% }
+        </style>
+        <title>video.js player</title>
+    </head>
+    <body style="margin:0px;padding:0px">
+        <div>
+            <video id="video" class="video-js vjs-fluid" controls preload="auto"></video>
+            <script>
+                var qstr = [...new URLSearchParams(window.location.search).entries()].reduce((obj, e) => ({...obj, [e[0]]: e[1]}), {})
+                console.log(qstr)
+                var aliveobj = null
+
+                window.onbeforeunload = function() {
+                    var player = videojs('video')
+                    player.dispose()
+                }
+
+                videojs.log.level('all')
+                var player = videojs('video', {
+                    fluid: true,
+                    autoplay: true,
+                    html5: {
+                        vhs: {
+                            overrideNative: true,
+                            debug: true
+                        }
+                    }
+                })
+                player.on('ended', function () {
+                    console.log('play end')
+                    player.pause()
+                })
+                player.ready(function () {
+                    this.src({
+                        src: qstr.file,
+                        type: "application/x-mpegURL"
+                    })
+                })
+                player.play()
+            </script>
+        </div>
+    </body>
+</html>
