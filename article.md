@@ -7,8 +7,8 @@
 GitHub に上げておいたので(参考にして|遊んで)みてください。
 
 ```shell
-git clone https://github.com/mkiuchi/aaabbbccc.git
-cd aaabbccc
+git clone https://github.com/mkiuchi/hls-demos.git
+cd hls-demos
 make
 python3 -m http.server 8080
 ```
