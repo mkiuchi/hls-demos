@@ -112,7 +112,7 @@ PC/Android では VP9 を使うと帯域を節約できてきれいな絵を出�
 
 Apple 系では VP9 は使えず、代わりに HEVC(H.265) に対応しているので別途エンコードしなければいけない。ただこっちも[最近の NVIDIA であれば nvenc が使える](https://trac.ffmpeg.org/wiki/HWAccelIntro#CUDANVENCNVDEC)ので割と妥当な時間でエンコードできる。ひとつ注意点としてはそれなりにいい GPU じゃないとエンコード速度がそんなに速くならない。個人的には GeForce GTX 1650 程度はあってもいいんじゃないかな、と。
 
-この辺のコーデック系は [Apple(+映像業界) と Apple 以外が CPU ベンダも巻き込んで絶賛競争中](https://disruptivewireless.blogspot.com/2012/12/webrtc-is-new-battleground-for-peer-to.html)なので、1年単位で変化するかもしれない。今後 AV1 とかあるしね。
+この辺のコーデック系は [Apple(+映像業界) と Apple 以外が CPU ベンダも巻き込んで絶賛競争中](https://bloggeek.me/av1-vs-hevc-webrtc-codec/)なので、1年単位で変化するかもしれない。今後 AV1 とかあるしね。
 
 ## 新しいからって MPEG-DASH にしなくてもいいと思う
 
