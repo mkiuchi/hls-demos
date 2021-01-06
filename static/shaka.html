@@ -47,14 +47,17 @@
                 async function initPlayer() {
                     // Create a Player instance.
                     const video = document.getElementById('video')
-                    const player = new shaka.Player(video);
+                    const ui = video['ui']
+                    // const player = new shaka.Player(video);
                     // initialize player control
                     // this function enables selection of stream and language
-                    const ui = new shaka.ui.Overlay(player, document.getElementById('videocontainer'), video);
-      	            ui.getControls();
+                    // const ui = new shaka.ui.Overlay(player, document.getElementById('videocontainer'), video);
+      	            const controls = ui.getControls()
+                    const player = controls.getPlayer()
 
                     // Attach player to the window to make it easy to access in the JS console.
-                    window.player = player;
+                    window.player = player
+                    window.ui = ui
 
                     // Listen for error events.
                     player.addEventListener('error', onErrorEvent);
